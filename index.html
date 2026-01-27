@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashfaque Ahmad | High Energy Physics</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #1a252f; /* Dark Slate */
+            --accent-color: #2980b9;  /* Science Blue */
+            --bg-color: #fcfcfc;
+            --text-color: #2c3e50;
+            --white: #ffffff;
+            --light-gray: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, #34495e 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 300;
+        }
+
+        .university-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+        }
+
+        .skills-header {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7f8c8d;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills-list li {
+            background: var(--light-gray);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border: 1px solid #ddd;
+        }
+
+        /* Projects Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        .project-tag {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            background: var(--light-gray);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media(min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 2fr 3fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Ashfaque Ahmad</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        
+        <h1>Ashfaque Ahmad</h1>
+        <div class="university-badge">Aligarh Muslim University (AMU)</div>
+        <p>PhD Scholar in High Energy Physics<br>Specializing in Microscopic Black Holes</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div style="text-align: center;">
+                <div style="width: 200px; height: 200px; background-color: #e0e0e0; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #7f8c8d; font-weight: bold; margin: 0 auto; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    Add Photo
+                </div>
+            </div>
+            <div class="about-text">
+                <p>
+                    I am currently pursuing my <strong>PhD in High Energy Physics</strong> at <strong>Aligarh Muslim University (AMU), Aligarh</strong>. My research is centered on theoretical physics, with a specific focus on the formation and decay of <strong>Microscopic Black Holes</strong> in higher-dimensional space.
+                </p>
+                <p>
+                    My work involves rigorous analysis of Large Hadron Collider (LHC) data to determine exclusion limits and decay signatures. Additionally, I explore interdisciplinary applications of physics principles, such as Information Theory, to biological systems like DNA.
+                </p>
+                
+                <div class="skills-header">Technical Skills</div>
+                <ul class="skills-list">
+                    <li>C++</li>
+                    <li>Python</li>
+                    <li>LaTeX</li>
+                    <li>Linux</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="container">
+        <h2 class="section-title">Research Areas</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="project-tag">Core Thesis</span>
+                <h3>Microscopic Black Holes</h3>
+                <p>
+                    Investigating the theoretical formation of black holes at the TeV scale. My work focuses on Schwarzschild radius calculations in extra dimensions and predicting decay signatures detectable at the LHC.
+                </p>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">Interdisciplinary</span>
+                <h3>Biophysics & Information Theory</h3>
+                <p>
+                    A comparative study applying statistical mechanics and Shannon entropy to analyze DNA sequences, bridging the gap between theoretical physics and biological complexity.
+                </p>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">Publications</span>
+                <h3>Academic Writing</h3>
+                <p>
+                    Drafting research papers on the exclusion limits of black hole remnants and their thermodynamic properties. Expertise in LaTeX and scientific documentation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                I am available for research collaboration and academic discussions.
+            </p>
+            <a href="mailto:ashfaque.phy@gmail.com" class="btn">ashfaque.phy@gmail.com</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ashfaque Ahmad. Aligarh Muslim University.</p>
+    </footer>
+
+</body>
+</html>
