@@ -8,7 +8,7 @@
         /* --- CSS STYLES --- */
         :root {
             --primary-color: #1a252f; /* Dark Slate */
-            --accent-color: #2980b9;  /* Science Blue */
+            --accent-color: #3498db;  /* Science Blue */
             --bg-color: #fcfcfc;
             --text-color: #2c3e50;
             --white: #ffffff;
@@ -69,51 +69,67 @@
             color: var(--accent-color);
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION (Backgound Image Here) --- */
         .hero {
-            background: linear-gradient(135deg, #1a252f 0%, #34495e 100%);
+            /* 1. Linear Gradient: This adds a dark transparent layer (0.8 opacity) 
+                  so the white text is readable over the image.
+               2. URL: This is the link to the Black Hole/Space image.
+            */
+            background-image: 
+                linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.8)),
+                url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop'); 
+            
+            background-size: cover;      /* Ensures image covers the whole area */
+            background-position: center; /* Centers the image */
+            background-attachment: fixed; /* Optional: Creates a cool parallax scrolling effect */
+            
             color: var(--white);
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             text-align: center;
         }
 
         .hero h1 {
             color: var(--white);
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin: 0 0 1rem 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto 2.5rem auto;
             font-weight: 300;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
         .university-badge {
             display: inline-block;
-            background-color: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
+            background-color: rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
         }
 
         .btn {
             display: inline-block;
             background: var(--accent-color);
             color: var(--white);
-            padding: 12px 30px;
+            padding: 14px 35px;
             text-decoration: none;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: 700;
             transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            background: #3498db;
+            background: #2980b9;
             transform: translateY(-2px);
         }
 
@@ -156,7 +172,7 @@
             font-size: 1rem;
             font-weight: 700;
             margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #7f8c8d;
@@ -167,17 +183,18 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skills-list li {
-            background: var(--light-gray);
-            padding: 5px 15px;
+            background: var(--white);
+            padding: 8px 18px;
             border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--primary-color);
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         /* Projects Grid */
@@ -251,9 +268,8 @@
     </header>
 
     <section class="hero">
-        
-        <h1>Ashfaque Ahmad</h1>
         <div class="university-badge">Aligarh Muslim University (AMU)</div>
+        <h1>Ashfaque Ahmad</h1>
         <p>PhD Scholar in High Energy Physics<br>Specializing in Microscopic Black Holes</p>
         <a href="#contact" class="btn">Get in Touch</a>
     </section>
