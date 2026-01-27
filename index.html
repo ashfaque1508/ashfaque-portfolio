@@ -7,21 +7,29 @@
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --primary-color: #1a252f; /* Dark Slate */
-            --accent-color: #3498db;  /* Science Blue */
-            --bg-color: #fcfcfc;
-            --text-color: #2c3e50;
-            --white: #ffffff;
-            --light-gray: #ecf0f1;
+            --primary-color: #ffffff; /* White text for dark mode */
+            --accent-color: #4facfe;  /* Bright Blue for contrast */
+            --glass-bg: rgba(20, 25, 40, 0.75); /* Semi-transparent dark box */
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
+            color: #e0e0e0; /* Light gray text */
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
+
+            /* --- WHOLE PAGE BACKGROUND IMAGE --- */
+            background-image: 
+                /* Dark overlay (0.7 opacity) to make text readable */
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                /* The Black Hole / Space Image */
+                url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop');
+            
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps image still while scrolling */
         }
 
         /* Typography */
@@ -32,11 +40,12 @@
 
         /* Header & Nav */
         header {
-            background: var(--white);
-            border-bottom: 1px solid #ddd;
+            background: rgba(0, 0, 0, 0.8); /* Dark header */
+            border-bottom: 1px solid var(--glass-border);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px); /* Blur effect behind header */
         }
 
         nav {
@@ -51,7 +60,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary-color);
+            color: var(--white);
             text-decoration: none;
             letter-spacing: -0.5px;
         }
@@ -59,7 +68,7 @@
         .nav-links a {
             margin-left: 25px;
             text-decoration: none;
-            color: var(--text-color);
+            color: #ccc;
             font-weight: 600;
             font-size: 0.95rem;
             transition: color 0.2s;
@@ -69,63 +78,53 @@
             color: var(--accent-color);
         }
 
-        /* --- HERO SECTION (Backgound Image Here) --- */
+        /* Hero Section */
         .hero {
-            /* 1. Linear Gradient: This adds a dark transparent layer (0.8 opacity) 
-                  so the white text is readable over the image.
-               2. URL: This is the link to the Black Hole/Space image.
-            */
-            background-image: 
-                linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.8)),
-                url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop'); 
-            
-            background-size: cover;      /* Ensures image covers the whole area */
-            background-position: center; /* Centers the image */
-            background-attachment: fixed; /* Optional: Creates a cool parallax scrolling effect */
-            
+            /* Background is now handled by body, so we just use transparent here */
+            background: transparent;
             color: var(--white);
             padding: 8rem 2rem;
             text-align: center;
         }
 
         .hero h1 {
-            color: var(--white);
             font-size: 3.5rem;
             margin: 0 0 1rem 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 20px rgba(0,0,0,1);
         }
 
         .hero p {
             font-size: 1.4rem;
-            opacity: 0.95;
+            opacity: 0.9;
             max-width: 800px;
             margin: 0 auto 2.5rem auto;
             font-weight: 300;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,1);
         }
 
         .university-badge {
             display: inline-block;
-            background-color: rgba(255,255,255,0.15);
+            background-color: rgba(255,255,255,0.1);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid var(--glass-border);
             backdrop-filter: blur(5px);
+            color: #fff;
         }
 
         .btn {
             display: inline-block;
             background: var(--accent-color);
-            color: var(--white);
+            color: #fff;
             padding: 14px 35px;
             text-decoration: none;
             border-radius: 4px;
             font-weight: 700;
             transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.4); /* Glowing button effect */
         }
 
         .btn:hover {
@@ -154,9 +153,19 @@
             height: 3px;
             background: var(--accent-color);
             margin: 15px auto 0;
+            box-shadow: 0 0 10px var(--accent-color); /* Glowing line */
         }
 
-        /* About Grid */
+        /* Glassmorphism Cards */
+        .about-grid, .project-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(5px); /* Makes background slightly blurry behind card */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -175,7 +184,7 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #7f8c8d;
+            color: #8ab6d6;
         }
 
         .skills-list {
@@ -187,14 +196,13 @@
         }
 
         .skills-list li {
-            background: var(--white);
+            background: rgba(255,255,255,0.1);
             padding: 8px 18px;
             border-radius: 4px;
             font-size: 0.95rem;
             font-weight: 600;
-            color: var(--primary-color);
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            color: #fff;
+            border: 1px solid var(--glass-border);
         }
 
         /* Projects Grid */
@@ -205,21 +213,19 @@
         }
 
         .project-card {
-            background: var(--white);
-            border: 1px solid #eee;
-            padding: 2rem;
-            border-radius: 8px;
-            transition: box-shadow 0.3s, transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .project-card:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border-color: var(--accent-color);
         }
 
         .project-card h3 {
             margin-top: 0;
             font-size: 1.4rem;
+            color: #fff;
         }
 
         .project-tag {
@@ -235,15 +241,17 @@
         /* Contact */
         .contact-section {
             text-align: center;
-            background: var(--light-gray);
+            /* Transparent because it sits on the body background now */
+            background: transparent; 
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: var(--primary-color);
-            color: #bdc3c7;
+            background: rgba(0,0,0,0.8);
+            color: #888;
             font-size: 0.9rem;
+            border-top: 1px solid var(--glass-border);
         }
 
         /* Responsive */
@@ -278,7 +286,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
             <div style="text-align: center;">
-                <div style="width: 200px; height: 200px; background-color: #e0e0e0; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #7f8c8d; font-weight: bold; margin: 0 auto; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="width: 200px; height: 200px; background-color: rgba(255,255,255,0.1); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; margin: 0 auto; border: 2px solid var(--accent-color); box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);">
                     Add Photo
                 </div>
             </div>
@@ -335,6 +343,10 @@
                 I am available for research collaboration and academic discussions.
             </p>
             <a href="mailto:ashfaque.phy@gmail.com" class="btn">ashfaque.phy@gmail.com</a>
+            
+            <p style="font-size: 0.9rem; color: #aaa; margin-top: 15px;">
+                (Click to email, or copy the address above)
+            </p>
         </div>
     </section>
 
